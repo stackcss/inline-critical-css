@@ -1,0 +1,32 @@
+{
+  "name": "inline-critical-css",
+  "description": "Inline critical CSS in HTML",
+  "repository": "yoshuawuyts/inline-critical-css",
+  "version": "1.0.0",
+  "scripts": {
+    "deps": "dependency-check . && dependency-check . --extra --no-dev",
+    "start": "node .",
+    "test": "standard && npm run deps"
+  },
+  "dependencies": {
+    "concat-stream": "^1.6.0",
+    "duplexify": "^3.5.0",
+    "end-of-stream": "^1.4.0",
+    "extract-html-class": "^1.0.0",
+    "hyperstream": "^1.2.2",
+    "readable-stream": "^2.3.3",
+    "through2": "^2.0.3"
+  },
+  "devDependencies": {
+    "dependency-check": "^2.8.0",
+    "standard": "^10.0.2",
+    "tape": "^4.6.3"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "inline",
+    "critical"
+  ],
+  "license": "MIT"
+}
