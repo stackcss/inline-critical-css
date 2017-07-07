@@ -12,6 +12,7 @@ module.exports = inline
 
 function inline (css) {
   assert.equal(typeof css, 'string', 'inline-critical-css: expected css to be type string')
+
   var decoder = new StringDecoder('utf8')
   var src = ''
 
@@ -41,6 +42,8 @@ function inline (css) {
     })
     eos(source, function (err) {
       if (err) return cb(err)
+      cb()
     })
+    source.end(src)
   }
 }

@@ -10,13 +10,15 @@ only inlines the CSS that's used.
 var inline = require('inline-critical-css')
 var pump = require('pump')
 
-var css = `.red { color: red }`
+var css = `
+  .red { color: red }
+`
 
 var html = `
-<html>
-  <head></head>
-  <body class="red">Hello world</body>
-</html>
+  <html>
+    <head></head>
+    <body class="red">Hello world</body>
+  </html>
 `
 
 var stream = inline(css)
