@@ -2,7 +2,6 @@ var StringDecoder = require('string_decoder').StringDecoder
 var extract = require('extract-html-class')
 var eos = require('end-of-stream')
 var through = require('through2')
-var postcss = require('postcss')
 var hs = require('hyperstream')
 var assert = require('assert')
 
@@ -28,10 +27,8 @@ function inline (css) {
 
     var self = this
     var classes = extract(src)
-    var opts = { rulesToKeep: classes }
-    var critical = postcss(filter(opts)).process(css)
+    var critical = filter(css, classes)
 
-    critical = critical.css
     var style = '<style>' + critical + '</style>'
 
     var source = hs({

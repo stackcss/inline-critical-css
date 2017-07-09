@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "assert-html": "^1.1.4",
+    "css": "^2.2.1",
     "duplexify": "^3.5.0",
     "end-of-stream": "^1.4.0",
     "extract-html-class": "^1.0.0",

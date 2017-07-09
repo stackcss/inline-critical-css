@@ -19,7 +19,7 @@ tape('inlines critical css', function (assert) {
 
   var expected = `
     <html>
-      <head>.red { color: red }</head>
+      <head><style>.red{color:red;}</style></head>
       <body class="red">Hello world</body>
     </html>
   `
