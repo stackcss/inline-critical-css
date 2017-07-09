@@ -10,6 +10,8 @@ var filter = require('./lib/filter')
 module.exports = inline
 
 function inline (css) {
+  if (Buffer.isBuffer(css)) css = String(css)
+
   assert.equal(typeof css, 'string', 'inline-critical-css: expected css to be type string')
 
   var decoder = new StringDecoder('utf8')
@@ -28,7 +30,6 @@ function inline (css) {
     var self = this
     var classes = extract(src)
     var critical = filter(css, classes)
-
     var style = '<style>' + critical + '</style>'
 
     var source = hs({

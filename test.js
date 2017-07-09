@@ -35,3 +35,35 @@ tape('inlines critical css', function (assert) {
 
   source.end(html)
 })
+
+tape('can parse nested selectors', function (assert) {
+  assert.plan(2)
+  var css = `
+    .red > h1 { color: red }
+  `
+
+  var html = `
+    <html>
+      <head></head>
+      <body class="red"><h1>Hello world</h1></body>
+    </html>
+  `
+
+  var expected = `
+    <html>
+      <head><style>.red>h1{color:red;}</style></head>
+      <body class="red"><h1>Hello world</h1></body>
+    </html>
+  `
+
+  var source = inline(css)
+  var sink = concat({ encoding: 'string' }, function (str) {
+    assert.equal(str, expected, 'was inlined')
+  })
+
+  pump(source, sink, function (err) {
+    assert.ifError(err, 'no error pumping')
+  })
+
+  source.end(html)
+})
