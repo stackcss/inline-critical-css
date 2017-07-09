@@ -9,13 +9,10 @@
     "test": "standard && npm run deps && node test"
   },
   "dependencies": {
-    "assert-html": "^1.1.4",
     "css": "^2.2.1",
-    "duplexify": "^3.5.0",
     "end-of-stream": "^1.4.0",
     "extract-html-class": "^1.0.0",
     "hyperstream": "^1.2.2",
-    "readable-stream": "^2.3.3",
     "through2": "^2.0.3"
   },
   "devDependencies": {
