@@ -5,7 +5,7 @@
 Stream that inlines critical CSS in HTML. Looks at the used CSS on a page and
 only inlines the CSS that's used.
 
-## Synchronous
+## Usage
 ```js
 var inline = require('inline-critical-css')
 var pump = require('pump')
