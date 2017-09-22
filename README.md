@@ -40,6 +40,14 @@ viewport, and checking which tokens are used (e.g. headless chrome or similar).
 We opted for a slightly simpler option, which hopefully works out well enough
 for most cases.
 
+### Why doesn't it inline my fancy selectors?
+Inlining fancy selectors (e.g. `.foo:not(:first-child)`) is really hard to
+determine statically if it's used. The best way to do so would be to launch a
+headless chrome instance - but that requires a fair amount of compute
+resources. So we don't. If you want that behavior, we recommend writing a
+headless chrome module specifically for that (and let us know, we'd be
+interested in that!)
+
 ## API
 ### `transformStream = inline(css)`
 Create a transform stream that inlines critical CSS in HTML.
