@@ -12,6 +12,7 @@
     "css": "^2.2.1",
     "end-of-stream": "^1.4.0",
     "extract-html-class": "^1.0.1",
+    "extract-html-tag": "^1.0.1",
     "hyperstream": "^1.2.2",
     "through2": "^2.0.3"
   },

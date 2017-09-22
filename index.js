@@ -1,5 +1,6 @@
 var StringDecoder = require('string_decoder').StringDecoder
-var extract = require('extract-html-class')
+var extractClass = require('extract-html-class')
+var extractTag = require('extract-html-tag')
 var eos = require('end-of-stream')
 var through = require('through2')
 var hs = require('hyperstream')
@@ -28,8 +29,10 @@ function inline (css) {
     src += decoder.end()
 
     var self = this
-    var classes = extract(src)
-    var critical = filter(css, classes)
+    var valid = extractClass(src).map(function (cls) {
+      return '.' + cls
+    }).concat(extractTag(src))
+    var critical = filter(css, valid)
     var style = '<style>' + critical + '</style>'
 
     var source = hs({
