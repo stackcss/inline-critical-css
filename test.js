@@ -135,3 +135,38 @@ tape('can parse breakpoints', function (assert) {
 
   source.end(html)
 })
+
+tape('excludes empty breakpoints', function (assert) {
+  var css = `
+    @media screen {
+      .noop { color: red }
+    }
+    .red > h1 { color: blue }
+  `
+
+  var html = `
+    <html>
+      <head></head>
+      <body class="red"><h1>Hello world</h1></body>
+    </html>
+  `
+
+  var expected = `
+    <html>
+      <head><style>.red>h1{color:blue;}</style></head>
+      <body class="red"><h1>Hello world</h1></body>
+    </html>
+  `
+
+  var source = inline(css)
+  var sink = concat({ encoding: 'string' }, function (str) {
+    assert.equal(str, expected, 'was inlined')
+    assert.end()
+  })
+
+  pump(source, sink, function (err) {
+    assert.ifError(err, 'no error pumping')
+  })
+
+  source.end(html)
+})
