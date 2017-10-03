@@ -54,7 +54,7 @@ Create a transform stream that inlines critical CSS in HTML.
 
 ## See Also
 - [substack/hyperstream](https://github.com/substack/hyperstream)
-- [yoshuawuyts/extract-html-class](https://github.com/yoshuawuyts/extract-html-class)
+- [stackcss/extract-html-class](https://github.com/stackcss/extract-html-class)
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
@@ -63,10 +63,10 @@ Create a transform stream that inlines critical CSS in HTML.
 [1]: https://nodejs.org/api/documentation.html#documentation_stability_index
 [2]: https://img.shields.io/npm/v/inline-critical-css.svg?style=flat-square
 [3]: https://npmjs.org/package/inline-critical-css
-[4]: https://img.shields.io/travis/yoshuawuyts/inline-critical-css/master.svg?style=flat-square
-[5]: https://travis-ci.org/yoshuawuyts/inline-critical-css
-[6]: https://img.shields.io/codecov/c/github/yoshuawuyts/inline-critical-css/master.svg?style=flat-square
-[7]: https://codecov.io/github/yoshuawuyts/inline-critical-css
+[4]: https://img.shields.io/travis/stackcss/inline-critical-css/master.svg?style=flat-square
+[5]: https://travis-ci.org/stackcss/inline-critical-css
+[6]: https://img.shields.io/codecov/c/github/stackcss/inline-critical-css/master.svg?style=flat-square
+[7]: https://codecov.io/github/stackcss/inline-critical-css
 [8]: http://img.shields.io/npm/dm/inline-critical-css.svg?style=flat-square
 [9]: https://npmjs.org/package/inline-critical-css
 [10]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square

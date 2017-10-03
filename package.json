@@ -1,7 +1,7 @@
 {
   "name": "inline-critical-css",
   "description": "Inline critical CSS in HTML",
-  "repository": "yoshuawuyts/inline-critical-css",
+  "repository": "stackcss/inline-critical-css",
   "version": "1.0.9",
   "scripts": {
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
