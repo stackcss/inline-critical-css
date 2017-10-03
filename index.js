@@ -1,5 +1,6 @@
 var StringDecoder = require('string_decoder').StringDecoder
 var extractClass = require('extract-html-class')
+var extractId = require('extract-html-id')
 var extractTag = require('extract-html-tag')
 var eos = require('end-of-stream')
 var through = require('through2')
@@ -31,9 +32,14 @@ function inline (css) {
     var self = this
     var valid = extractClass(src).map(function (cls) {
       return '.' + cls
-    }).concat(extractTag(src))
+    }).concat(extractId(src).map(function (id) {
+      return '#' + id
+    })).concat(extractTag(src))
     var critical = filter(css, valid)
-    var style = '<style>' + critical + '</style>'
+    var style = ''
+    if (critical) {
+      style = '<style>' + critical + '</style>'
+    }
 
     var source = hs({
       head: { _appendHtml: style }
