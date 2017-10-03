@@ -202,3 +202,67 @@ tape('excludes empty breakpoints', function (assert) {
 
   source.end(html)
 })
+
+tape('can parse ids', function (assert) {
+  assert.plan(2)
+  var css = `
+    #red { color: red }
+  `
+
+  var html = `
+    <html>
+      <head></head>
+      <body id="red">Hello world</body>
+    </html>
+  `
+
+  var expected = `
+    <html>
+      <head><style>#red{color:red;}</style></head>
+      <body id="red">Hello world</body>
+    </html>
+  `
+
+  var source = inline(css)
+  var sink = concat({ encoding: 'string' }, function (str) {
+    assert.equal(str, expected, 'was inlined')
+  })
+
+  pump(source, sink, function (err) {
+    assert.ifError(err, 'no error pumping')
+  })
+
+  source.end(html)
+})
+
+tape('ignores extra ids', function (assert) {
+  assert.plan(2)
+  var css = `
+    #red { color: red }
+  `
+
+  var html = `
+    <html>
+      <head></head>
+      <body id="blue red">Hello world</body>
+    </html>
+  `
+
+  var expected = `
+    <html>
+      <head></head>
+      <body id="blue red">Hello world</body>
+    </html>
+  `
+
+  var source = inline(css)
+  var sink = concat({ encoding: 'string' }, function (str) {
+    assert.equal(str, expected, 'was inlined')
+  })
+
+  pump(source, sink, function (err) {
+    assert.ifError(err, 'no error pumping')
+  })
+
+  source.end(html)
+})
