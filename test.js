@@ -266,3 +266,35 @@ tape('ignores extra ids', function (assert) {
 
   source.end(html)
 })
+
+tape('can parse * selector', function (assert) {
+  assert.plan(2)
+  var css = `
+    * { box-sizing: border-box; }
+  `
+
+  var html = `
+    <html>
+      <head></head>
+      <body>Hello world</body>
+    </html>
+  `
+
+  var expected = `
+    <html>
+      <head><style>*{box-sizing:border-box;}</style></head>
+      <body>Hello world</body>
+    </html>
+  `
+
+  var source = inline(css)
+  var sink = concat({ encoding: 'string' }, function (str) {
+    assert.equal(str, expected, 'was inlined')
+  })
+
+  pump(source, sink, function (err) {
+    assert.ifError(err, 'no error pumping')
+  })
+
+  source.end(html)
+})
