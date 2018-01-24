@@ -4,7 +4,7 @@ var extractId = require('extract-html-id')
 var extractTag = require('extract-html-tag')
 var eos = require('end-of-stream')
 var through = require('through2')
-var hs = require('hyperstream')
+var hs = require('hstream')
 var assert = require('assert')
 
 var filter = require('./lib/filter')
