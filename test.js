@@ -298,3 +298,42 @@ tape('can parse * selector', function (assert) {
 
   source.end(html)
 })
+
+tape('can parse multiple selectors', function (assert) {
+  assert.plan(2)
+  var css = `
+    a, div, p, body, main { box-sizing: border-box; }
+  `
+  var html = `
+    <html>
+      <head></head>
+      <body>
+        <main>
+          <p>Hello world</p>
+        </main>
+      </body>
+    </html>
+  `
+
+  var expected = `
+    <html>
+      <head><style>a,div,p,body,main{box-sizing:border-box;}</style></head>
+      <body>
+        <main>
+          <p>Hello world</p>
+        </main>
+      </body>
+    </html>
+  `
+
+  var source = inline(css)
+  var sink = concat({ encoding: 'string' }, function (str) {
+    assert.equal(str, expected, 'was inlined')
+  })
+
+  pump(source, sink, function (err) {
+    assert.ifError(err, 'no error pumping')
+  })
+
+  source.end(html)
+})

@@ -35,6 +35,7 @@ function inline (css) {
     }).concat(extractId(src).map(function (id) {
       return '#' + id
     })).concat(extractTag(src))
+
     var critical = filter(css, valid)
     var style = ''
     if (critical) {
