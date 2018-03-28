@@ -2,7 +2,7 @@
   "name": "inline-critical-css",
   "description": "Inline critical CSS in HTML",
   "repository": "stackcss/inline-critical-css",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "scripts": {
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
     "start": "node .",
