@@ -21,7 +21,7 @@
     "concat-stream": "^2.0.0",
     "dependency-check": "^3.4.1",
     "pump": "^3.0.0",
-    "standard": "^13.0.2",
+    "standard": "^14.0.0",
     "tape": "^4.6.3"
   },
   "keywords": [
