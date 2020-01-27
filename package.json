@@ -14,14 +14,14 @@
     "extract-html-class": "^1.0.1",
     "extract-html-id": "^1.0.0",
     "extract-html-tag": "^1.0.1",
-    "hstream": "^1.0.0",
-    "through2": "^2.0.3"
+    "hstream": "^2.0.0",
+    "through2": "^3.0.1"
   },
   "devDependencies": {
-    "concat-stream": "^1.6.0",
-    "dependency-check": "^2.8.0",
-    "pump": "^1.0.2",
-    "standard": "^10.0.2",
+    "concat-stream": "^2.0.0",
+    "dependency-check": "^3.4.1",
+    "pump": "^3.0.0",
+    "standard": "^14.0.0",
     "tape": "^4.6.3"
   },
   "keywords": [
