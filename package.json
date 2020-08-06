@@ -9,20 +9,20 @@
     "test": "standard && npm run deps && node test"
   },
   "dependencies": {
-    "css": "^2.2.1",
+    "css": "^3.0.0",
     "end-of-stream": "^1.4.0",
     "extract-html-class": "^1.0.1",
     "extract-html-id": "^1.0.0",
     "extract-html-tag": "^1.0.1",
     "hstream": "^2.0.0",
-    "through2": "^3.0.1"
+    "through2": "^4.0.2"
   },
   "devDependencies": {
     "concat-stream": "^2.0.0",
     "dependency-check": "^3.4.1",
     "pump": "^3.0.0",
     "standard": "^14.0.0",
-    "tape": "^4.6.3"
+    "tape": "^5.0.1"
   },
   "keywords": [
     "html",

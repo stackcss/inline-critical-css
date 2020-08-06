@@ -169,6 +169,7 @@ tape('can parse breakpoints', function (assert) {
 })
 
 tape('excludes empty breakpoints', function (assert) {
+  assert.plan(2)
   var css = `
     @media screen {
       .noop { color: red }
@@ -193,7 +194,6 @@ tape('excludes empty breakpoints', function (assert) {
   var source = inline(css)
   var sink = concat({ encoding: 'string' }, function (str) {
     assert.equal(str, expected, 'was inlined')
-    assert.end()
   })
 
   pump(source, sink, function (err) {
